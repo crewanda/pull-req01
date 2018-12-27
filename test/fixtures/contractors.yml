@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ContractorCD: MyString
+  ContractorName: MyString
+
+two:
+  ContractorCD: MyString
+  ContractorName: MyString

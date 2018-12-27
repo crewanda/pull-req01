@@ -1,0 +1,2 @@
+class SecurityMeetingDetail < ApplicationRecord
+end

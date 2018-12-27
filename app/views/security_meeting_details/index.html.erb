@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Security Meeting Details</h1>
+
+<%= will_paginate @security_meeting_details, :previous_label => '前へ', :next_label => '次へ' %>
+<table id="ichiran" border="1">
+  <thead>
+    <tr>
+      <th>Meetingregistrationno</th>
+      <th>工事番号</th>
+      <th>打合せ日</th>
+      <th>工事件名</th>
+      <th>XX</th>
+      <th>請負会社</th>
+      <th>請負会社氏名</th>
+      <th>作業予定日</th>
+      <th>作業時間コード</th>
+      <th>作業場所</th>
+      <th>作業内容区分</th>
+      <th>作業内容</th>
+      <th>キロ程コード</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @security_meeting_details.each do |security_meeting_detail| %>
+      <tr>
+        <td><%= security_meeting_detail.MeetingRegistrationNo %></td>
+        <td><%= security_meeting_detail.ConstructionNo %></td>
+        <td><%= security_meeting_detail.MeetingDate %></td>
+        <td><%= security_meeting_detail.ConstructionTitle %></td>
+        <td><%= security_meeting_detail.XX %></td>
+        <td><%= security_meeting_detail.ContractorCD %></td>
+        <td><%= security_meeting_detail.ContractorName %></td>
+        <td><%= security_meeting_detail.WorkPlanDate %></td>
+        <td><%= security_meeting_detail.WorkTimeCD %></td>
+        <td><%= security_meeting_detail.WorkSite %></td>
+        <td><%= security_meeting_detail.WorkContentsKbn %></td>
+        <td><%= security_meeting_detail.WorkContents %></td>
+        <td><%= security_meeting_detail.KmCD %></td>
+
+        <td>
+            <!-- %= link_to 'Edit', edit_security_meeting_detail_path(security_meeting_detail) % -->
+           <%= link_to image_tag('edit.png', :id => "edit" ), edit_security_meeting_detail_path(security_meeting_detail) %> 
+        </td>
+        <td><%= link_to 'Show', security_meeting_detail %></td>
+        <td><%= link_to 'Destroy', security_meeting_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @security_meeting_details, :previous_label => '前へ', :next_label => '次へ' %>
+
+<br>
+
+<%= link_to 'New Security Meeting Detail', new_security_meeting_detail_path %>

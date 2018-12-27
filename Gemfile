@@ -30,6 +30,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+#JQueryを使用する
+gem 'jquery-rails'
+
+gem 'jquery-turbolinks'
+
+gem 'will_paginate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

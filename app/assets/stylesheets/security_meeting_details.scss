@@ -1,0 +1,250 @@
+// Place all the styles related to the SecurityMeetingDetails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#accordion {
+  border: 1px #ccc solid;
+  border-top: none;
+  width:auto;
+}
+#accordion dt {
+  background: #808080;
+  padding: 10px;
+  border-top: 1px #ccc solid;
+  position:relative;
+  }
+#accordion dt a {
+  color: #ffffff;
+  text-decoration: none;
+  display:block;
+}
+#accordion dd {
+  padding: 10px;
+}
+
+#ichiran {
+  border: solid 1px #ffffff;
+  border-collapse: collapse;
+}
+
+
+#ichiran tr th {
+  background: #006400;
+  color: #ffffff;
+}
+
+#ichiran tr:nth-child(odd) {
+	background: #7fff7f;
+}
+#ichiran tr:nth-child(2n+1) {
+	background: #7fffbf;
+}
+
+#editlock .on {
+    display: block;
+}
+#editlock .off {
+    display: none;
+}
+
+#lock{
+    width: 30px;
+    height: 30px;
+    fill: #006400;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#unlock{
+    width: 30px;
+    height: 30px;
+    fill: #006400;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+
+#edit{
+    width: 30px;
+    height: 30px;
+    fill: #006400;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+
+
+#updateBtn{
+    width: 90px;
+    height: 40px;
+}
+#cancelBtn{
+    width: 90px;
+    height: 40px;
+}
+
+#arrow1{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow2{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow3{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow4{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow5{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow6{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow7{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow8{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow9{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#arrow10{
+    width: 16px;
+    height: 15px;
+    fill: #fff;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+
+
+.dropdown_toggle#arrow1  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow2  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow3  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow4  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow5  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow6  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow7  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow8  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow9  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.dropdown_toggle#arrow10  {
+   	-webkit-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+
