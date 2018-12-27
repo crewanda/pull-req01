@@ -1,0 +1,437 @@
+<%= form_with(model: security_meeting_detail, local: true) do |form| %>
+  <% if security_meeting_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(security_meeting_detail.errors.count, "error") %> prohibited this security_meeting_detail from being saved:</h2>
+
+      <ul>
+      <% security_meeting_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :MeetingRegistrationNo %>
+    <%= form.text_field :MeetingRegistrationNo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ConstructionNo %>
+    <%= form.text_field :ConstructionNo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :MeetingDate %>
+    <%= form.text_field :MeetingDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ConstructionTitle %>
+    <%= form.text_field :ConstructionTitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :XX %>
+    <%= form.text_field :XX %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ContractorCD %>
+    <%= form.text_field :ContractorCD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ContractorName %>
+    <%= form.text_field :ContractorName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WorkPlanDate %>
+    <%= form.text_field :WorkPlanDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WorkTimeCD %>
+    <%= form.text_field :WorkTimeCD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WorkSite %>
+    <%= form.text_field :WorkSite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WorkContentsKbn %>
+    <%= form.text_field :WorkContentsKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WorkContents %>
+    <%= form.text_field :WorkContents %>
+  </div>
+
+  <div class="field">
+    <%= form.label :KmCD %>
+    <%= form.text_field :KmCD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LineClosureStart %>
+    <%= form.text_field :LineClosureStart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LineClosureEnd %>
+    <%= form.text_field :LineClosureEnd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :MaintenanceCarStart %>
+    <%= form.text_field :MaintenanceCarStart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :MaintenanceCarEnd %>
+    <%= form.text_field :MaintenanceCarEnd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :MaintenanceWorkStart %>
+    <%= form.text_field :MaintenanceWorkStart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :MaintenanceWorkEnd %>
+    <%= form.text_field :MaintenanceWorkEnd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :UseStopStart %>
+    <%= form.text_field :UseStopStart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :UseStopEnd %>
+    <%= form.text_field :UseStopEnd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WorkTimeZoneStart %>
+    <%= form.text_field :WorkTimeZoneStart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WorkTimeZoneSEnd %>
+    <%= form.text_field :WorkTimeZoneSEnd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OtherStart %>
+    <%= form.text_field :OtherStart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OtherEnd %>
+    <%= form.text_field :OtherEnd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LineName %>
+    <%= form.text_field :LineName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :DistributeElectricalStop %>
+    <%= form.text_field :DistributeElectricalStop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :UsedKbn %>
+    <%= form.number_field :UsedKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EntryMethodKbn %>
+    <%= form.number_field :EntryMethodKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TCUseKbn %>
+    <%= form.number_field :TCUseKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TCContentsOfUse %>
+    <%= form.text_field :TCContentsOfUse %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ShortCircuitFlg %>
+    <%= form.text_field :ShortCircuitFlg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ShortCircuitKbn %>
+    <%= form.text_field :ShortCircuitKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PSLEFlg %>
+    <%= form.text_field :PSLEFlg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PSLEKbn %>
+    <%= form.text_field :PSLEKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TCFlg %>
+    <%= form.text_field :TCFlg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TCKbn %>
+    <%= form.text_field :TCKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OTTWFlg %>
+    <%= form.text_field :OTTWFlg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OTTWKbn %>
+    <%= form.text_field :OTTWKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :VariousCarsUsedKbn %>
+    <%= form.number_field :VariousCarsUsedKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StationManagerName %>
+    <%= form.text_field :StationManagerName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ConfirmTime %>
+    <%= form.text_field :ConfirmTime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :HotLineWork %>
+    <%= form.text_field :HotLineWork %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OrbitConstructionManagerCD %>
+    <%= form.text_field :OrbitConstructionManagerCD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ContactInfo %>
+    <%= form.text_field :ContactInfo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OrbitChiefManagerCD %>
+    <%= form.text_field :OrbitChiefManagerCD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LineCloseResponsibleCD %>
+    <%= form.text_field :LineCloseResponsibleCD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OrbitConstructionSafetyResponsibilityManager %>
+    <%= form.text_field :OrbitConstructionSafetyResponsibilityManager %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ConstructionMachinery %>
+    <%= form.text_field :ConstructionMachinery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OrbitWorkResponsibleCD %>
+    <%= form.text_field :OrbitWorkResponsibleCD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WeldWorkResponsible %>
+    <%= form.text_field :WeldWorkResponsible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ConstructionLimitResponsible %>
+    <%= form.text_field :ConstructionLimitResponsible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TrainWatch %>
+    <%= form.number_field :TrainWatch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TrafficRegulator %>
+    <%= form.number_field :TrafficRegulator %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Guide %>
+    <%= form.number_field :Guide %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LineCloseResponsibleName %>
+    <%= form.text_field :LineCloseResponsibleName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StartXX %>
+    <%= form.text_field :StartXX %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StartContract %>
+    <%= form.text_field :StartContract %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StartStart %>
+    <%= form.text_field :StartStart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StartContact %>
+    <%= form.text_field :StartContact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StartStopFlg %>
+    <%= form.text_field :StartStopFlg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :StartStop %>
+    <%= form.text_field :StartStop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EndXX %>
+    <%= form.text_field :EndXX %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EndContract %>
+    <%= form.text_field :EndContract %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EndEnd %>
+    <%= form.text_field :EndEnd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EndContact %>
+    <%= form.text_field :EndContact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EndStopFlg %>
+    <%= form.text_field :EndStopFlg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :EndStop %>
+    <%= form.text_field :EndStop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ChangeXX %>
+    <%= form.text_field :ChangeXX %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ChangeContract %>
+    <%= form.text_field :ChangeContract %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ChangeDate %>
+    <%= form.text_field :ChangeDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TimeOfDay %>
+    <%= form.text_field :TimeOfDay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ChangeContents %>
+    <%= form.text_area :ChangeContents %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Notice %>
+    <%= form.text_area :Notice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :WithinLimitsWorkKbn %>
+    <%= form.text_field :WithinLimitsWorkKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OutOfBoundsWorkKbn %>
+    <%= form.text_field :OutOfBoundsWorkKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ProximityWorkKbn %>
+    <%= form.text_field :ProximityWorkKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LineCloseWorkKbn %>
+    <%= form.text_field :LineCloseWorkKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :LEDWorkKbn %>
+    <%= form.text_field :LEDWorkKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TCKbn %>
+    <%= form.text_field :TCKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :TransceiverUseKbn %>
+    <%= form.text_field :TransceiverUseKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :SafetyRopeUseKbn %>
+    <%= form.text_field :SafetyRopeUseKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OrbitVariousCarsUseKbn %>
+    <%= form.text_field :OrbitVariousCarsUseKbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :UseResponsibleName %>
+    <%= form.text_field :UseResponsibleName %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

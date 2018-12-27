@@ -1,0 +1,1116 @@
+<%= form_with(model: security_meeting_detail, local: true) do |form| %>
+  <% if security_meeting_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(security_meeting_detail.errors.count, "error") %> prohibited this security_meeting_detail from being saved:</h2>
+      <ul>
+      <% security_meeting_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :MeetingRegistrationNo %>
+    <%= form.text_field :MeetingRegistrationNo %>
+  </div>
+    <table>
+        <tr>
+            <td>
+                <div class="field">
+                <%= form.label :工事番号 %>
+              </div>
+            </td>
+            <td>
+                <div class="field">
+                    <%= form.text_field :ConstructionNo %>
+                </div>
+            </td>
+            <td>
+              <div class="field">
+                <%= form.label :打合せ日 %>
+              </div>
+            </td>
+            <td>
+                <div class="field">
+                    <%= form.text_field :MeetingDate %>
+                </div>
+            </td>
+            <td>
+                <%= image_tag('calendar.png' , size: '22x22') %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="field">
+                    <%= form.label :工事件名 %>
+                </div>
+            </td>
+            <td>
+                <div class="field">
+                    <%= form.text_field :ConstructionTitle %>
+                </div>
+            </td>
+            <td>
+              <div class="field">
+                <%= form.label :打合せ者 %>
+                <%= form.label :XX %>
+              </div>
+            </td>
+            <td colspan="2">
+              <div class="field">
+                <%= form.text_field :XX %>
+              </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <div class="field">
+                <%= form.label :請負会社 %>
+              </div>
+            </td>
+            <td>
+                <div class="field">
+                    <%= form.collection_select :ContractorCD, Contractor.all, :ContractorCD, :ContractorName %>
+                    <!-- %= form.select :ContractorCD, [['請負会社A', 1],['請負会社B',2]] % -->
+                </div>
+            </td>
+            <td>
+              <div class="field">
+                <%= form.label :請負会社 %>
+              </div>
+            </td>
+            <td colspan="2">
+              <div class="field">
+                <%= form.text_field :ContractorName %>
+              </div>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <div id="editlock">
+                    <%= image_tag('lock.png', :id => "lock", :class => "on")  %>
+                    <%= image_tag('unlock.png', :id => "unlock", :class => "off") %>
+                </div>
+            </td>    
+            <td>
+              <div class="actions">
+                <%= form.submit('更新', :id => "updateBtn") %>
+              </div>
+            </td>
+            <td>
+              <div class="actions">
+                <%= form.button('キャンセル', :id => "cancelBtn") %>
+              </div>
+            </td>
+        </tr>
+    </table>
+
+	<dl id="accordion">
+	    <!-- 基本情報 -->
+		<dt><a href="#" class="menu01">基本情報</a><%= image_tag('Down.png', :id => "arrow1") %></dt>
+		<dd>
+		    <div class="cp_actab-content">
+		    	<table>
+		    		<tr>
+		    			<td>
+		    				<%= form.label :作業予定日,  class: 'itemlabel' %>
+		    			</td>
+		    			<td>
+		    				<%= form.text_field :WorkPlanDate, class: 'iteminput' %>
+		    			</td>
+		    			<td><%= image_tag('calendar.png' , size: '22x22') %>
+		    			</td>
+		    			<td>
+		    				<%= form.label :作業時間 %>
+		    			</td>
+		    			<td>
+			                <%= form.select :WorkTimeCD, [['9時00分～16時00分', 1],['9時00分～12時00分',2],['12時00分～16時00分',3],['23時50分～4時30分',4]] %>
+		    			</td>
+		    		</tr>
+		    	</table>
+		    	<table>
+		    		<tr>
+		    			<td>
+			                <%= form.label :作業場所 %>
+		    			</td>
+		    			<td>
+			                <%= form.text_field :WorkSite %>
+		    			</td>
+		    		</tr>
+		    	</table>
+				<table>
+					<tr>
+						<td>
+							<%= form.label :作業内容 %>
+						</td>
+						<td>
+			                <%= form.select :WorkContentsKbn, [['A', 1],['B',2],['C',3]] %>
+						</td>
+						<td>
+			                <%= form.text_field :WorkContents %>
+						</td>
+					</tr>
+					<tr>
+						<td><%= form.label :キロ程 %>
+						</td>
+						<td colspan="2">
+			                <%= form.select :KmCD, [['1000km', 1],['1020km',2],['1030km',3]] %>
+						</td>
+					</tr>
+				</table>
+		    </div>
+	    </dd>
+		<dt><a href="#" class="menu02">線路閉鎖等による作業等</a><%= image_tag('Down.png', :id => "arrow2") %></dt>
+	    <dd>
+			<table>
+	    		<tr>
+	    			<td>
+					  <div class="field">
+					    <%= form.label :線路閉鎖 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :LineClosureStart %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+					<td>
+					    <%= form.label :～ %>
+					</td>
+					<td>
+						<div class="field">
+						<%= form.text_field :LineClosureEnd %>
+						</div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :保守用車 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :MaintenanceCarStart %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+					<td>
+					    <%= form.label :～ %>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :MaintenanceCarEnd %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="field">
+						<%= form.label :保守作業 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+						<%= form.text_field :MaintenanceWorkStart %>
+						</div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+					<td>
+					    <%= form.label :～ %>
+					</td>
+					<td>
+						<div class="field">
+						<%= form.text_field :MaintenanceWorkEnd %>
+						</div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :使用停止 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :UseStopStart %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+					<td>
+					    <%= form.label :～ %>
+					</td>
+					<td>
+						<div class="field">
+						<%= form.text_field :UseStopEnd %>
+						</div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :作業時間帯 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :WorkTimeZoneStart %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+					<td>
+					    <%= form.label :～ %>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :WorkTimeZoneSEnd %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :その他 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :OtherStart %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+					<td>
+					    <%= form.label :～ %>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :OtherEnd %>
+					  </div>
+					</td>
+					<td>
+						<%= image_tag('clock.png' , size: '22x22') %>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+					    <%= form.label :線名・線別・列車間合又は承認番号 %>
+					</td>
+					<td colspan="2">
+						<div class="field">
+							<%= form.text_field :LineName %>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<hr>
+			<table>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :き電停止・配電停止 %>
+					    <%= form.label :送受電停止・その他 %>
+					    <%= form.label :線名・線別・列車間合又は承認番号 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :DistributeElectricalStop %>
+					  </div>
+					</td>
+				</tr>
+			</table>
+			<hr>
+			<table>
+				<tr>
+					<td colspan="3">
+					    <%= form.label :建設用大型機械 %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					    <%= form.label :使用有無・表示灯種類 %>
+					</td>
+					<td>
+						<div class="field">
+							<!-- %= form_for(@security_meeting_detail) do |f| %  -->
+								<%= form.radio_button :UsedKbn, 0 %>有(赤色表示灯)
+								<%= form.radio_button :UsedKbn, 1 %>有(黄色表示灯)
+								<%= form.radio_button :UsedKbn, 2 %>使用無し
+							<!-- % end %  -->
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+					    <%= form.label :限界内進入時の方法 %>
+					</td>
+					<td>
+						<div class="field">
+							<!-- %= form_for(@security_meeting_detail) do |f| %  -->
+								<%= form.radio_button :EntryMethodKbn, 0 %>前線線閉後
+								<%= form.radio_button :EntryMethodKbn, 1 %>前線線閉前
+							<!-- % end %  -->
+						</div>
+					</td>
+				</tr>
+			</table>
+			<hr>
+			<table>
+				<tr>
+					<td colspan="3">
+					    <%= form.label :TC_型列警の使用 %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<div class="field">
+							<!-- %= form_for(@security_meeting_detail) do |f| %  -->
+								<%= form.radio_button :TCUseKbn, 0 %>有
+								<%= form.text_field :TCContentsOfUse %>
+								<%= form.radio_button :TCUseKbn, 1 %>無
+							<!-- % end %  -->
+						</div>
+					</td>
+				</tr>
+			</table>
+		</dd>
+		<dt><a href="#" class="menu03">その他保安機器等を使用した作業等</a><%= image_tag('Down.png', :id => "arrow3") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td colspan="3">
+						<%= form.label :保安機器等 %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<%= form.check_box :ShortCircuitFlg %>短絡器
+					</td>
+					<td>
+					  <div class="field">
+		                <%= form.select :ShortCircuitKbn, [['9時00分～16時00分', 0],['9時00分～12時00分',1],['12時00分～16時00分',2]] %>
+					  </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<%= form.check_box :PSLEFlg %>可搬式特発
+					</td>
+					<td>
+					  <div class="field">
+		                <%= form.select :PSLEKbn, [['9時00分～16時00分', 0],['9時00分～12時00分',1],['12時00分～16時00分',2]] %>
+					  </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<%= form.check_box :TCFlg %>TC 列警
+					</td>
+					<td>
+					  <div class="field">
+		                <%= form.select :TCKbn, [['9時00分～16時00分', 0],['9時00分～12時00分',1],['12時00分～16時00分',2]] %>
+					  </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<%= form.check_box :OTTWFlg %>その他列警
+					</td>
+					<td>
+					  <div class="field">
+		                <%= form.select :OTTWKbn, [['9時00分～16時00分', 0],['9時00分～12時00分',1],['12時00分～16時00分',2]] %>
+					  </div>
+					</td>
+				</tr>
+			</table>
+		    <hr>
+			<table>
+				<tr>
+					<td colspan="3">
+					    <%= form.label :諸車使用の有無 %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<div class="field">
+							<!-- %= form_for(@security_meeting_detail) do |f| % -->
+							
+								<%= form.radio_button :VariousCarsUsedKbn, 0 %>有
+								<%= form.radio_button :VariousCarsUsedKbn, 1 %>無
+							
+							<!-- % end %  -->
+						</div>
+					</td>
+				</tr>
+			</table>
+		    <hr>
+			<table>
+				<tr>
+					<td colspan="4">
+					    <%= form.label :運転状況確認 %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_field :StationManagerName %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_field :ConfirmTime %>
+						</div>
+					</td>
+					<td>■
+					</td>
+				</tr>
+			</table>
+		</dd>
+		<dt><a href="#" class="menu04">活線・活線接近作業</a><%= image_tag('Down.png', :id => "arrow4") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.text_field :HotLineWork %>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</dd>
+		<dt><a href="#" class="menu05">工事従事者</a><%= image_tag('Down.png', :id => "arrow5") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :工事・軌道工事管理者・ %>
+					    <%= form.label :軌道工事管理者（機械施工） %>
+					  </div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :OrbitConstructionManagerCD, [['田中太郎', 1],['田中次郎',2],['田中三郎',3]] %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.label :連絡先 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :ContactInfo %>
+					  </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :軌道主任管理者 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+							<%= form.select :OrbitChiefManagerCD, [['田中太郎', 1],['田中次郎',2],['田中三郎',3]] %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :線閉責任者 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+							<%= form.select :LineCloseResponsibleCD, [['田中太郎', 1],['田中次郎',2],['田中三郎',3]] %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :工事・軌道工事安全専任管理者 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :OrbitConstructionSafetyResponsibilityManager %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :建設用機械OP（ユニック・BH） %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :ConstructionMachinery %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :軌道作業責任者 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+							<%= form.select :OrbitWorkResponsibleCD, [['田中太郎', 1],['田中次郎',2],['田中三郎',3]] %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :溶接作業責任者 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :WeldWorkResponsible %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :建築限界責任者 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :ConstructionLimitResponsible %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :列車見張員 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :TrainWatch %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :交通整理員 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :TrafficRegulator %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					  <div class="field">
+					    <%= form.label :誘導員 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :Guide %>
+					  </div>
+					</td>
+					<td colspan="2">
+					</td>
+				</tr>
+			</table>
+		</dd>
+	    <dt><a href="#" class="menu06">XX 線閉責任者等</a><%= image_tag('Down.png', :id => "arrow6") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.text_field :LineCloseResponsibleName %>
+						</div>
+					</td>
+				</tr>
+			</table>
+			</dd>
+	    <dt><a href="#" class="menu07">開始作業・修了確認</a><%= image_tag('Down.png', :id => "arrow7") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td colspan="14">作業開始時の確認
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+					  <div class="field">
+					    <%= form.label :XX %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :StartXX %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.label :請負 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :StartContract %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.label :開始 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :StartStart %>
+					  </div>
+					</td>
+					<td>■
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.label :連絡 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :StartContact %>
+					  </div>
+					</td>
+					<td>■
+					</td>
+					<td>
+						<%= form.check_box :StartStopFlg %>中止
+					</td>
+					<td>
+						<div class="field">
+						  <%= form.text_field :StartStop %>
+						</div>
+					</td>
+					<td>■
+					</td>
+				</tr>
+				<tr>
+					<td colspan="14">作業終了時の確認
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+					  <div class="field">
+					    <%= form.label :XX %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :EndXX %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.label :請負 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :EndContract %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.label :終了 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :EndEnd %>
+					  </div>
+					</td>
+					<td>■
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.label :連絡 %>
+					  </div>
+					</td>
+					<td>
+					  <div class="field">
+					    <%= form.text_field :EndContact %>
+					  </div>
+					</td>
+					<td>■
+					</td>
+					<td>
+						<%= form.check_box :EndStopFlg %>中止
+					</td>
+					<td>
+						<div class="field">
+						    <%= form.text_field :EndStop %>
+						</div>
+					</td>
+					<td>■
+					</td>
+				</tr>
+			</table>
+		</dd>
+	    <dt><a href="#" class="menu08">打合せ事項の変更</a><%= image_tag('Down.png', :id => "arrow8") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :XX %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_field :ChangeXX %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.label :請負 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_field :ChangeContract %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.label :変更日時 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_field :ChangeDate %>
+						</div>
+					</td>
+					<td>■
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_field :TimeOfDay %>
+						</div>
+					</td>
+					<td>■
+					</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :変更内容 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_area :ChangeContents %>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</dd>
+	    <dt><a href="#" class="menu09">連絡事項等（特記事項）</a><%= image_tag('Down.png', :id => "arrow9") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.text_area :Notice %>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</dd>
+	    <dt><a href="#" class="menu10">保安体制</a><%= image_tag('Down.png', :id => "arrow10") %></dt>
+		<dd>
+			<table>
+				<tr>
+					<td>
+						  <div class="field">
+						    <%= form.label :限界内作業 %>
+						  </div>
+					</td>
+					<td>
+						  <div class="field">
+							<%= form.select :WithinLimitsWorkKbn, [['―', '0'],['○','1']] %>
+						  </div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :限界外作業 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :OutOfBoundsWorkKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :近接作業 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :ProximityWorkKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :線閉作業 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :LineCloseWorkKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :LED作業 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :LEDWorkKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :TC列警 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :TCKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+				
+
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :無線機使用 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :TransceiverUseKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :安全ロープ %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :SafetyRopeUseKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+
+
+
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :軌道諸車使用 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.select :OrbitVariousCarsUseKbn, [['―', '0'],['○','1']] %>
+						</div>
+					</td>
+				</tr>
+				
+
+				<tr>
+					<td>
+						<div class="field">
+							<%= form.label :使用責任者氏名 %>
+						</div>
+					</td>
+					<td>
+						<div class="field">
+							<%= form.text_field :UseResponsibleName %>
+						</div>
+					</td>
+				</tr>
+				
+				
+			</table>
+		</dd>
+	</dl>
+<% end %>
+    <script language="javascript">
+    <!--
+    $(function() {
+        //alert("PASS01");
+        $('#accordion dd').hide();
+        $('#accordion dt a').click(function(evt){
+            //alert($(evt.target).attr('class'));
+            if($(evt.target).attr('class') == 'menu01'){
+              $('#accordion dt #arrow1').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu02'){
+              $('#accordion dt #arrow2').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu03'){
+              $('#accordion dt #arrow3').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu04'){
+              $('#accordion dt #arrow4').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu05'){
+              $('#accordion dt #arrow5').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu06'){
+              $('#accordion dt #arrow6').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu07'){
+              $('#accordion dt #arrow7').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu08'){
+              $('#accordion dt #arrow8').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu09'){
+              $('#accordion dt #arrow9').toggleClass('dropdown_toggle');  
+            }
+            else if($(evt.target).attr('class') == 'menu10'){
+              $('#accordion dt #arrow10').toggleClass('dropdown_toggle');  
+            }
+            $(this).parent().next().slideToggle();
+            return false;
+        });
+        // ロック -> アンロック
+        $('#lock').click( function() {
+            document.getElementById("lock").className="off";
+            document.getElementById("unlock").className="on";
+            return;
+        });    
+        // アンロック -> ロック
+        $('#unlock').click( function() {
+            document.getElementById("lock").className="on";
+            document.getElementById("unlock").className="off";
+            return;
+        });    
+        // 
+        $('#cancelBtn').click( function() {
+            window.location.href = "/security_meeting_details";
+            //alert("Cancel?");
+            return false;
+        });    
+    });
+    -->
+    </script>
